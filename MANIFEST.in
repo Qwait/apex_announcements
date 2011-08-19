@@ -1,0 +1,2 @@
+graft apex_announcements/static/
+graft apex_announcements/templates/

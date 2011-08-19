@@ -1,0 +1,3 @@
+__init__.py
+
+config.include('apex_announcements')
