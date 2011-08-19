@@ -1,5 +1,3 @@
-import datetime
-
 from sqlalchemy import Column
 from sqlalchemy import Unicode
 from sqlalchemy import types
@@ -8,6 +6,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
+
+from sqlalchemy.sql import functions
 
 from zope.sqlalchemy import ZopeTransactionExtension 
 
@@ -22,7 +22,7 @@ class Announcement(Base):
     id = Column(types.BigInteger(), primary_key=True)
     title = Column(Unicode(40), default=u'')
     content = Column(Unicode(255), default=u'')
-    creation_date = Column(types.Date(), default=datetime.datetime.now, index=True)
+    creation_date = Column(types.Date(), default=functions.current_date(), index=True)
     site_wide = Column(types.Boolean(), default=True)
     members_only = Column(types.Boolean(), default=False)
 
