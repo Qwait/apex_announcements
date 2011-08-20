@@ -23,12 +23,20 @@ class Announcement(Base):
     title = Column(Unicode(40), default=u'')
     content = Column(Unicode(255), default=u'')
     creation_date = Column(types.Date(), default=functions.current_date(), index=True)
-    site_wide = Column(types.Boolean(), default=True)
-    members_only = Column(types.Boolean(), default=False)
+    kind = Column(types.Enum(u'S', u'M'), default=u'S', index=True)
 
     @classmethod
     def current(cls, **kwargs):
         return DBSession.query(cls).filter_by(**kwargs).all()
+
+
+def current_announcements_for_request(request):
+    defaults = {
+        'kind': u'S',
+    }
+    if request.user:
+        defaults['kind'] = u'M'
+    return Announcement.current(**defaults)
 
 def initialize_sql(engine):
     DBSession.configure(bind=engine)
