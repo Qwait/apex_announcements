@@ -1,3 +1,2 @@
-* Mako template support
 * Style announcements
 * Hide announcements
