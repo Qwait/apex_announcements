@@ -16,6 +16,8 @@ Base = declarative_base()
 
 
 class Announcement(Base):
+    """ Announcement table - apex_announcements
+    """
     __tablename__ = 'apex_announcements'
     __table_args__ = {"sqlite_autoincrement": True}
  
@@ -31,6 +33,8 @@ class Announcement(Base):
 
 
 def current_announcements_for_request(request):
+    """ return list of current announcements
+    """
     defaults = {
         'kind': u'S',
     }
