@@ -1,5 +1,5 @@
-Initial Setup of Apex Launchpad
-===============================
+Initial Setup of Apex Announcements
+===================================
 
 **__init__.py**
 
