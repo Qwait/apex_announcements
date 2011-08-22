@@ -21,7 +21,7 @@ class Announcement(Base):
     __tablename__ = 'apex_announcements'
     __table_args__ = {"sqlite_autoincrement": True}
  
-    id = Column(types.BigInteger(), primary_key=True)
+    id = Column(types.Integer(), primary_key=True)
     title = Column(Unicode(40), default=u'')
     content = Column(Unicode(255), default=u'')
     creation_date = Column(types.Date(), default=functions.current_date(), index=True)
